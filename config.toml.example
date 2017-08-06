@@ -1,0 +1,27 @@
+[bot]
+name = "poppy"
+playing = "with myself"
+prefix = '.'
+secret = "your key here"
+
+[web]
+enabled = false
+port = 80
+
+[tax]
+enabled = false
+percent = 0.01
+recipients = ["one cid", "another cid"]
+
+[commands]
+bing = true
+donate = true
+duel = true
+gamble = true
+gf = true
+giphy = true
+kf = true
+reddit = true
+tts = true
+ud = true
+xkcd = true

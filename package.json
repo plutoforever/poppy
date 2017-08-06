@@ -1,0 +1,28 @@
+{
+  "name": "poppy",
+  "version": "0.0.1",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "chance": "^1.0.9",
+    "cli-color": "^1.2.0",
+    "discord.js": "^10.0.1",
+    "express": "^4.15.3",
+    "html-entities": "^1.2.0",
+    "jfs": "^0.2.6",
+    "jsonfile": "^2.4.0",
+    "log-timestamp": "^0.1.2",
+    "moment": "^2.18.1",
+    "node-cmd": "^3.0.0",
+    "node-opus": "^0.2.6",
+    "node-persist": "^2.0.11",
+    "nraw": "^0.2.5",
+    "opusscript": "0.0.3",
+    "tabletojson": "^0.4.0",
+    "time-stamp": "^2.0.0",
+    "toml": "^2.3.2",
+    "unirest": "^0.5.1"
+  },
+  "scripts": {
+    "start": "node main.js"
+  }
+}

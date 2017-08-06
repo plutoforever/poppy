@@ -1,0 +1,57 @@
+<head>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>All or Nothin</title>
+    <style>
+        body {
+            background-image: url("img/cloudy-day.png");
+            background-repeat: repeat;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/c3.min.css" rel="stylesheet" type="text/css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/c3.min.js"></script>
+</head>
+
+<body>
+<div>
+    <div>
+        <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Poppy</a></li>
+                <li><a href="/duels">Duels</a></li>
+                <li class="active"><a href="/gambles">Gambles<span class="sr-only">(current)</span></a></li>
+                <li><a href="/balls">Balls</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="chart"></div>
+    <script>
+        c3.generate({
+            data: {
+                url: 'data/gambles.json',
+                mimeType: 'json'
+            },
+            grid: {
+                x: {
+                    show: true
+                },
+                y: {
+                    show: true
+                }
+            },
+            size: {
+                height: 650,
+                width: 1500
+            },
+            zoom: {
+                enabled: true
+            }
+        });
+    </script>
+</div>
+</body>

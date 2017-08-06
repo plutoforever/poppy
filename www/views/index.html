@@ -1,0 +1,141 @@
+<html>
+<head>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>How rich are you?</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url("img/pink-dust.png");
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <div>
+        <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Poppy<span class="sr-only">(current)</span></a></li>
+                <li><a href="/duels">Duels</a></li>
+                <li><a href="/gambles">Gambles</a></li>
+                <li><a href="/balls">Balls</a></li>
+            </ul>
+        </nav>
+    </div>
+
+<div id="pieChart"></div>
+<script src="js/d3.min.js"></script>
+<script src="js/d3pie.min.js"></script>
+<script>
+    d3.json("data/data.json", function(error, data){
+        //var data = [];
+        data.forEach(function(d) {
+            data.push({
+                label : d.name,
+                value : d.bank.total_bank
+            })
+
+            //d.avatar = d.avatar;
+        });
+
+        var pie = new d3pie("pieChart", {
+            "header": {
+                "title": {
+                    "text": "Who is the richest of them all?",
+                    "fontSize": 24,
+                    "font": "open sans"
+                },
+                "subtitle": {
+                    "text": "A pie chart showing the biggest bank on discord",
+                    "color": "#468999",
+                    "fontSize": 12,
+                    "font": "open sans"
+                },
+                "titleSubtitlePadding": 12
+            },
+            "footer": {
+                "color": "#999999",
+                "fontSize": 10,
+                "font": "open sans",
+                "location": "bottom-left"
+            },
+            "size": {
+                "canvasHeight": 700,
+                "canvasWidth": 1500,
+                "pieOuterRadius": "80%"
+            },
+            "data": {
+                "sortOrder": "value-asc",
+                "content": data
+            },
+            "labels": {
+
+                "outer": {
+                    "format": "label-value1",
+                    "pieDistance": 30
+                },
+                "inner": {
+                    "format": "percentage",
+                    "hideWhenLessThanPercentage": 3
+                },
+                "mainLabel": {
+                    "color": "#760909",
+                    "fontSize": 11
+                },
+                "percentage": {
+                    "color": "#ffffff",
+                    "fontSize": 11,
+                    "decimalPlaces": 0
+                },
+                "value": {
+                    "color": "#000000",
+                    "fontSize": 11
+                },
+                "lines": {
+                    "enabled": true,
+                    "style" : "curved"
+                },
+                "truncation": {
+                    "enabled": true,
+                    "truncateLength": 30
+                }
+            },
+            "tooltips": {
+                "enabled": true,
+                "type": "placeholder",
+                "string": "{label}: {value}, {percentage}%"
+            },
+            "effects": {
+                "pullOutSegmentOnClick": {
+                    "effect": "bounce",
+                    "speed": 400,
+                    "size": 8
+                }
+            },
+            "misc": {
+                "gradient": {
+                    "enabled": true,
+                    "percentage": 85
+                }
+            },
+            callbacks: {
+                onClickSegment: function(a) {
+                   /* //alert("Segment clicked! See the console for all data passed to the click handler.");
+                    var index = parseInt($(e.target).data("index"), 10);
+                    pie.openSegment(index);
+                    console.log(a);*/
+                }
+            }
+        });
+
+    })
+
+</script>
+</div>
+</body>
+</html>
